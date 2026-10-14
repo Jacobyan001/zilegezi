@@ -1,7 +1,9 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+import http from 'node:http';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const dir = path.join(__dirname, 'dist');
 const mime = {
   '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css',
@@ -15,7 +17,6 @@ http.createServer((req, res) => {
   let file = path.join(dir, urlPath === '/' ? 'index.html' : urlPath);
   fs.readFile(file, (err, data) => {
     if (err) {
-      // SPA fallback
       file = path.join(dir, 'index.html');
       try { data = fs.readFileSync(file); } catch { res.writeHead(404); res.end('not found'); return; }
     }
