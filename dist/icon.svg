@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7a63f"/>
+      <stop offset="1" stop-color="#e85d3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <!-- 后方叠字卡 -->
+  <rect x="96" y="92" width="210" height="210" rx="34" transform="rotate(-10 201 197)" fill="#fdf6e9" opacity="0.55"/>
+  <text x="201" y="238" transform="rotate(-10 201 197)" font-family="KaiTi, STKaiti, serif" font-size="150" fill="#2e2a24" text-anchor="middle" opacity="0.5">汉</text>
+  <rect x="206" y="150" width="210" height="210" rx="34" transform="rotate(8 311 255)" fill="#fdf6e9" opacity="0.8"/>
+  <text x="311" y="296" transform="rotate(8 311 255)" font-family="KaiTi, STKaiti, serif" font-size="150" fill="#2e2a24" text-anchor="middle" opacity="0.75">字</text>
+  <!-- 主字卡 -->
+  <rect x="128" y="214" width="236" height="236" rx="40" fill="#fdf6e9"/>
+  <rect x="128" y="214" width="236" height="236" rx="40" fill="none" stroke="#2e2a24" stroke-width="10" stroke-opacity="0.12"/>
+  <text x="246" y="386" font-family="KaiTi, STKaiti, serif" font-size="172" font-weight="700" fill="#e85d3f" text-anchor="middle">字</text>
+</svg>

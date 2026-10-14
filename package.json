@@ -1,0 +1,30 @@
+{
+  "name": "zilegezi",
+  "private": true,
+  "version": "1.0.0",
+  "description": "字了个字 - 羊了个羊式层叠汉字消除，孩子大声读出汉字即可消除，支持幼儿园到小学六年级分级字库",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "cnchar": "^3.2.6",
+    "cnchar-poly": "^3.2.6",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vite-plugin-pwa": "^1.1.0"
+  }
+}
