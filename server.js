@@ -22,4 +22,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': mime[path.extname(file)] || 'application/octet-stream' });
     res.end(data);
   });
-}).listen(80, '0.0.0.0', () => console.log('serving on :80'));
+}).listen(8080, '0.0.0.0', () => console.log('serving on :8080'));
