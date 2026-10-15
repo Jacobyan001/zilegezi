@@ -42,6 +42,21 @@ function rand(min: number, max: number): number {
   return min + Math.random() * (max - min);
 }
 
+function clamp(v: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, v));
+}
+
+/**
+ * 字卡中心允许的活动范围：层偏移 + 边缘格位会让摆位天然超出 BOARD 矩形，
+ * 这里统一内缩（半卡宽 + 12px 安全边距），保证任何波次/补卡/重排
+ * 都不会把字卡放到牌桌外——Board 只按 BOARD_W/BOARD_H 缩放，越界即被裁切。
+ */
+const MARGIN = 12;
+const MIN_X = CARD_W / 2 + MARGIN;
+const MAX_X = BOARD_W - CARD_W / 2 - MARGIN;
+const MIN_Y = CARD_H / 2 + MARGIN;
+const MAX_Y = BOARD_H - CARD_H / 2 - MARGIN;
+
 /** 按本波难度挑选字库（带笔画与年级进阶） */
 function selectChars(grade: GradeId, wave: number): CharInfo[] {
   const gradeIdx = GRADES.findIndex((g) => g.id === grade);
@@ -163,8 +178,8 @@ function placeCards(count: number, layers: number, occupied: Set<string>): Place
       const ox = (layer - (layers - 1) / 2) * 16 + rand(-6, 6);
       const oy = (layer - (layers - 1) / 2) * 17 + rand(-6, 6);
       placements.push({
-        x: BOARD_W / 2 + (col - (COLS - 1) / 2) * PITCH_X + ox,
-        y: BOARD_H / 2 + (row - (ROWS - 1) / 2) * PITCH_Y + oy,
+        x: clamp(BOARD_W / 2 + (col - (COLS - 1) / 2) * PITCH_X + ox, MIN_X, MAX_X),
+        y: clamp(BOARD_H / 2 + (row - (ROWS - 1) / 2) * PITCH_Y + oy, MIN_Y, MAX_Y),
         layer,
         rot: rand(-4, 4),
         cell,
